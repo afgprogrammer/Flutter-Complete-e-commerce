@@ -1,12 +1,12 @@
-import 'package:day16_shopping/Animation.dart';
+import 'package:day16_shopping/Animation/FadeAnimation.dart';
 import 'package:flutter/material.dart';
 
-class Shop extends StatefulWidget {
+class ShopPage extends StatefulWidget {
   @override
-  _ShopState createState() => _ShopState();
+  _ShopPageState createState() => _ShopPageState();
 }
 
-class _ShopState extends State<Shop> {
+class _ShopPageState extends State<ShopPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

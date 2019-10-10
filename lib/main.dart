@@ -1,5 +1,5 @@
-import 'package:day16_shopping/Animation.dart';
-import 'package:day16_shopping/Shop.dart';
+import 'package:day16_shopping/Animation/FadeAnimation.dart';
+import 'package:day16_shopping/Pages/ShopPage.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       end: 30.0
     ).animate(_scaleController)..addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: Shop()));
+        Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: ShopPage()));
       }
     });
 
