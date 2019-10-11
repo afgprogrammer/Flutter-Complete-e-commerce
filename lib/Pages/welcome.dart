@@ -67,21 +67,23 @@ class _WelcomePageState extends State<WelcomePage>
                 FadeAnimation(
                     1.7,
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
+                      padding: const EdgeInsets.only(bottom: 20),
                       child: InkWell(
                         onTap: () =>
                             Navigator.of(context).pushNamed(HomePage.routeName),
                         child: Container(
                           height: 50,
                           decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white),
-                              borderRadius: BorderRadius.circular(50)),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(50)
+                          ),
                           child: Center(
                             child: Text(
                               "Get started",
                               style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold
+                              ),
                             ),
                           ),
                         ),

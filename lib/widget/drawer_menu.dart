@@ -21,10 +21,10 @@ class _DrawerMenuState extends State<DrawerMenu> {
   Widget build(BuildContext context) {
     return Column(
       children: _drawerModel
-          .map((f) => InkWell(
-                onTap: () => print(f.url),
-              ))
-          .toList(),
+        .map((f) => InkWell(
+          onTap: () => print(f.url),
+        ))
+        .toList(),
     );
   }
 }

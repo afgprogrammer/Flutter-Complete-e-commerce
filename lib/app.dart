@@ -30,18 +30,19 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Gotham'),
       title: 'Shop',
       onGenerateRoute: (settings) {
         if (settings.isInitialRoute) {
           return inPageRoute(WelcomePage(),
-              RouteSettings(name: WelcomePage.routeName, isInitialRoute: true));
+            RouteSettings(name: WelcomePage.routeName, isInitialRoute: true));
         }
 
         if (_routes.containsKey(settings.name)) {
           final builder = _routes[settings.name];
           return inPageRoute(
-              builder(context), RouteSettings(name: settings.name));
+            builder(context), RouteSettings(name: settings.name));
         }
 
         return inPageRoute(NotFound());
@@ -55,7 +56,7 @@ class _AppState extends State<App> {
 bool neverNotify(_, __) => false;
 
 Provider<T> inProvider<T>(T value) =>
-    Provider<T>.value(value: value, updateShouldNotify: neverNotify);
+  Provider<T>.value(value: value, updateShouldNotify: neverNotify);
 
 MaterialPageRoute inPageRoute(Widget child, [RouteSettings settings]) =>
-    MaterialPageRoute(builder: (context) => child, settings: settings);
+  MaterialPageRoute(builder: (context) => child, settings: settings);
