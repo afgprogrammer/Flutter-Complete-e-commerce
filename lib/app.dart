@@ -4,6 +4,8 @@ import 'package:day16_shopping/Pages/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'app_state.dart';
+
 class App extends StatefulWidget {
   @override
   _AppState createState() => _AppState();
@@ -12,9 +14,12 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   Map<String, WidgetBuilder> _routes;
 
+  AppState _state;
+
   @override
   void initState() {
     super.initState();
+    _state = AppState();
 
     _routes = {
       WelcomePage.routeName: (_) => WelcomePage(),
@@ -29,26 +34,33 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Gotham'),
-      title: 'Shop',
-      onGenerateRoute: (settings) {
-        if (settings.isInitialRoute) {
-          return inPageRoute(WelcomePage(),
-            RouteSettings(name: WelcomePage.routeName, isInitialRoute: true));
-        }
+    return MultiProvider(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Gotham'),
+        title: 'Shop',
+        onGenerateRoute: (settings) {
+          if (settings.isInitialRoute) {
+            return inPageRoute(
+                WelcomePage(),
+                RouteSettings(
+                    name: WelcomePage.routeName, isInitialRoute: true));
+          }
 
-        if (_routes.containsKey(settings.name)) {
-          final builder = _routes[settings.name];
-          return inPageRoute(
-            builder(context), RouteSettings(name: settings.name));
-        }
+          if (_routes.containsKey(settings.name)) {
+            final builder = _routes[settings.name];
+            return inPageRoute(
+                builder(context), RouteSettings(name: settings.name));
+          }
 
-        return inPageRoute(NotFound());
-      },
+          return inPageRoute(NotFound());
+        },
 
-      // supportedLocales: [//TODO DEFINE SUPOORTED LANGSSSSS],
+        // supportedLocales: [//TODO DEFINE SUPOORTED LANGSSSSS],
+      ),
+      providers: [
+        inProvider<AppState>(_state),
+      ],
     );
   }
 }
@@ -56,7 +68,7 @@ class _AppState extends State<App> {
 bool neverNotify(_, __) => false;
 
 Provider<T> inProvider<T>(T value) =>
-  Provider<T>.value(value: value, updateShouldNotify: neverNotify);
+    Provider<T>.value(value: value, updateShouldNotify: neverNotify);
 
 MaterialPageRoute inPageRoute(Widget child, [RouteSettings settings]) =>
-  MaterialPageRoute(builder: (context) => child, settings: settings);
+    MaterialPageRoute(builder: (context) => child, settings: settings);

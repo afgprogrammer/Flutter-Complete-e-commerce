@@ -19,12 +19,16 @@ class _DrawerMenuState extends State<DrawerMenu> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: _drawerModel
-        .map((f) => InkWell(
-          onTap: () => print(f.url),
-        ))
-        .toList(),
+    return Container(
+      color: Colors.white,
+      child: Column(
+        children: _drawerModel
+            .map((f) => InkWell(
+                  child: Text(f.title),
+                  onTap: () => print(f.url),
+                ))
+            .toList(),
+      ),
     );
   }
 }
