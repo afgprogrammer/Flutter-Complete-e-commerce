@@ -40,12 +40,6 @@ class _AppState extends State<App> {
         theme: ThemeData(fontFamily: 'Gotham'),
         title: 'Shop',
         onGenerateRoute: (settings) {
-          if (settings.isInitialRoute) {
-            return inPageRoute(
-                WelcomePage(),
-                RouteSettings(
-                    name: WelcomePage.routeName, isInitialRoute: true));
-          }
 
           if (_routes.containsKey(settings.name)) {
             final builder = _routes[settings.name];
@@ -55,6 +49,15 @@ class _AppState extends State<App> {
 
           return inPageRoute(NotFound());
         },
+        // Mirgration to Navigator 2.0
+        // merge request: https://github.com/flutter/flutter/pull/51435
+        // migration guide: https://flutter.dev/docs/release/breaking-changes/route-navigator-refactoring
+        onGenerateInitialRoutes: (initialRoute) {
+          return <Route>[
+            inPageRoute(
+                WelcomePage(), RouteSettings(name: WelcomePage.routeName))
+          ];
+        }
 
         // supportedLocales: [//TODO DEFINE SUPOORTED LANGSSSSS],
       ),
