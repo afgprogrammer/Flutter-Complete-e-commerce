@@ -1,4 +1,4 @@
-import 'package:day16_shopping/Animation/FadeAnimation.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:day16_shopping/Pages/ShopPage.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -16,8 +16,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  AnimationController _scaleController;
-  Animation<double> _scaleAnimation;
+  late AnimationController _scaleController;
+  late Animation<double> _scaleAnimation;
 
   bool hide = false;
 
@@ -69,9 +69,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                FadeAnimation(1, Text("Brand New Perspective", style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),)),
+                FadeInUp(duration: Duration(milliseconds: 1000), child: Text("Brand New Perspective", style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),)),
                 SizedBox(height: 20,),
-                FadeAnimation(1.3, Text("Let's start with our summer collection.", style: TextStyle(color: Colors.white, fontSize: 20),)),
+                FadeInUp(duration: Duration(milliseconds: 1300), child: Text("Let's start with our summer collection.", style: TextStyle(color: Colors.white, fontSize: 20),)),
                 SizedBox(height: 100,),
                 InkWell(
                   onTap: () {
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     animation: _scaleController,
                     builder: (context, child) => Transform.scale(
                       scale: _scaleAnimation.value,
-                      child: FadeAnimation(1.5, Container(
+                      child: FadeInUp(duration: Duration(milliseconds: 1500), child: Container(
                         height: 50,
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                 ),
                 SizedBox(height: 20,),
-                FadeAnimation(1.7, Container(
+                FadeInUp(duration: Duration(milliseconds: 1700), child: Container(
                   height: 50,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.white),

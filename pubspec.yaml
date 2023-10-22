@@ -14,17 +14,17 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=3.1.3 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  page_transition: ^1.1.4
-  simple_animations: ^1.3.3
+  page_transition: ^2.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
+  cupertino_icons: ^1.0.2
+  animate_do: ^3.1.2
 
 dev_dependencies:
   flutter_test:

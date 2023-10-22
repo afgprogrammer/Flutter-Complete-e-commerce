@@ -1,4 +1,4 @@
-import 'package:day16_shopping/Animation/FadeAnimation.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:day16_shopping/Pages/CategoryPage.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class _ShopPageState extends State<ShopPage> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            FadeAnimation(1, Container(
+            FadeInUp(duration: Duration(milliseconds: 1000), child: Container(
               height: 500,
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -41,10 +41,10 @@ class _ShopPageState extends State<ShopPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
-                          FadeAnimation(1.2, IconButton(
+                          FadeInUp(duration: Duration(milliseconds: 1200), child: IconButton(
                             icon: Icon(Icons.favorite, color: Colors.white,), onPressed: () {},
                           )),
-                          FadeAnimation(1.3, IconButton(
+                          FadeInUp(duration: Duration(milliseconds: 1300), child: IconButton(
                             icon: Icon(Icons.shopping_cart, color: Colors.white,), onPressed: () {},
                           )),
                         ],
@@ -54,9 +54,9 @@ class _ShopPageState extends State<ShopPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            FadeAnimation(1.5, Text("Our New Products", style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),)),
+                            FadeInUp(duration: Duration(milliseconds: 1500), child: Text("Our New Products", style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),)),
                             SizedBox(height: 15,),
-                            FadeAnimation(1.7, Row(
+                            FadeInUp(duration: Duration(milliseconds: 1700), child: Row(
                               children: <Widget>[
                                 Text("VIEW MORE", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),),
                                 SizedBox(width: 5,),
@@ -72,7 +72,7 @@ class _ShopPageState extends State<ShopPage> {
                 ),
               ),
             )),
-            FadeAnimation(1.4, Container(
+            FadeInUp(duration: Duration(milliseconds: 1400), child: Container(
               padding: EdgeInsets.all(20),
               child: Column(
                 children: <Widget>[
@@ -117,7 +117,8 @@ class _ShopPageState extends State<ShopPage> {
                         makeBestCategory(image: 'assets/images/glass.jpg', title: 'Glass'),
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(height: 80,),
                 ],
               ),
             ))

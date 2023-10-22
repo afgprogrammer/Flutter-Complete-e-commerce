@@ -1,12 +1,12 @@
-import 'package:day16_shopping/Animation/FadeAnimation.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 class CategoryPage extends StatefulWidget {
-  final String title;
-  final String image;
-  final String tag;
+  final String? title;
+  final String? image;
+  final String? tag;
 
-  const CategoryPage({Key key, this.title, this.image, this.tag}) : super(key: key);
+  const CategoryPage({Key? key, this.title, this.image, this.tag}) : super(key: key);
 
   @override
   _CategoryPageState createState() => _CategoryPageState();
@@ -21,13 +21,13 @@ class _CategoryPageState extends State<CategoryPage> {
         child: Column(
           children: <Widget>[
             Hero(
-              tag: widget.tag,
+              tag: widget.tag!,
               child: Material(
                 child: Container(
-                  height: 250,
+                  height: 360,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(widget.image),
+                      image: AssetImage(widget.image!),
                       fit: BoxFit.cover
                     )
                   ),
@@ -57,13 +57,13 @@ class _CategoryPageState extends State<CategoryPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
-                                FadeAnimation(1.2, IconButton(
+                                FadeInUp(duration: Duration(milliseconds: 1200), child: IconButton(
                                   icon: Icon(Icons.search, color: Colors.white,), onPressed: () {},
                                 )),
-                                FadeAnimation(1.2, IconButton(
+                                FadeInUp(duration: Duration(milliseconds: 1200), child: IconButton(
                                   icon: Icon(Icons.favorite, color: Colors.white,), onPressed: () {},
                                 )),
-                                FadeAnimation(1.3, IconButton(
+                                FadeInUp(duration: Duration(milliseconds: 1300), child: IconButton(
                                   icon: Icon(Icons.shopping_cart, color: Colors.white,), onPressed: () {},
                                 )),
                               ],
@@ -73,7 +73,7 @@ class _CategoryPageState extends State<CategoryPage> {
                         SizedBox(
                           height: 40,
                         ),
-                        FadeAnimation(1.2, Text(widget.title, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 40),))
+                        FadeInUp(duration: Duration(milliseconds: 1200), child: Text(widget.title!, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 40),))
                       ],
                     ),
                   ),
@@ -84,7 +84,7 @@ class _CategoryPageState extends State<CategoryPage> {
               padding: EdgeInsets.all(20),
               child: Column(
                 children: <Widget>[
-                  FadeAnimation(1.4, Row(
+                  FadeInUp(duration: Duration(milliseconds: 1400), child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text("New Product", style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),),
@@ -98,11 +98,11 @@ class _CategoryPageState extends State<CategoryPage> {
                     ],
                   )),
                   SizedBox(height: 20,),
-                  FadeAnimation(1.5, makeProduct(image: 'assets/images/beauty-1.jpg', title: 'Beauty', price: '100\$')),
-                  FadeAnimation(1.6, makeProduct(image: 'assets/images/clothes-1.jpg', title: 'Clothes', price: '100\$')),
-                  FadeAnimation(1.7, makeProduct(image: 'assets/images/glass.jpg', title: 'Glass', price: '100\$')),
-                  FadeAnimation(1.8, makeProduct(image: 'assets/images/perfume.jpg', title: 'Perfume', price: '100\$')),
-                  FadeAnimation(1.9, makeProduct(image: 'assets/images/person.jpg', title: 'Person', price: '100\$')),
+                  FadeInUp(duration: Duration(milliseconds: 1500), child:  makeProduct(image: 'assets/images/beauty-1.jpg', title: 'Beauty', price: '100\$')),
+                  FadeInUp(duration: Duration(milliseconds: 1600), child:  makeProduct(image: 'assets/images/clothes-1.jpg', title: 'Clothes', price: '100\$')),
+                  FadeInUp(duration: Duration(milliseconds: 1700), child:  makeProduct(image: 'assets/images/glass.jpg', title: 'Glass', price: '100\$')),
+                  FadeInUp(duration: Duration(milliseconds: 1800), child:  makeProduct(image: 'assets/images/perfume.jpg', title: 'Perfume', price: '100\$')),
+                  FadeInUp(duration: Duration(milliseconds: 1900), child:  makeProduct(image: 'assets/images/person.jpg', title: 'Person', price: '100\$')),
                 ],
               ),
             )
@@ -140,7 +140,7 @@ class _CategoryPageState extends State<CategoryPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            FadeAnimation(1.4, Align(
+            FadeInUp(duration: Duration(milliseconds: 1400), child: Align(
               alignment: Alignment.topRight,
               child: Icon(Icons.favorite_border, color: Colors.white,),
             )),
@@ -151,11 +151,11 @@ class _CategoryPageState extends State<CategoryPage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    FadeAnimation(1.5, Text(title, style: TextStyle(color: Colors.white, fontSize: 20),)),
-                    FadeAnimation(1.6, Text(price, style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),)),
+                    FadeInUp(duration: Duration(milliseconds: 1500), child: Text(title, style: TextStyle(color: Colors.white, fontSize: 20),)),
+                    FadeInUp(duration: Duration(milliseconds: 1500), child: Text(price, style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),)),
                   ],
                 ),
-                FadeAnimation(2, Container(
+                FadeInUp(duration: Duration(milliseconds: 2000), child: Container(
                   width: 40,
                   height: 40,
                   margin: EdgeInsets.only(bottom: 10),
