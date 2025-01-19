@@ -69,10 +69,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                FadeInUp(duration: Duration(milliseconds: 1000), child: Text("Brand New Perspective", style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),)),
-                SizedBox(height: 20,),
-                FadeInUp(duration: Duration(milliseconds: 1300), child: Text("Let's start with our summer collection.", style: TextStyle(color: Colors.white, fontSize: 20),)),
-                SizedBox(height: 100,),
+                FadeInUp(duration: Duration(milliseconds: 1000), child: Text("Brand New Perspective", style: TextStyle(color: Colors.white, height: 1.2, fontSize: 40, fontWeight: FontWeight.w900),)),
+                SizedBox(height: 8,),
+                FadeInUp(duration: Duration(milliseconds: 1300), child: Text("Let's start with our summer collection.", style: TextStyle(color: Colors.grey.shade300, fontSize: 22),)),
+                SizedBox(height: 80,),
                 InkWell(
                   onTap: () {
                     setState(() {
